@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon src/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "cryptonator": "^1.0.2",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.1"
   }
 }
