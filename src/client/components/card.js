@@ -17,12 +17,18 @@ export default class Card extends Component {
 				break;
 
 		}
+
+		let className = 'raise';
+
+		if(ticker.change < 0){
+			className = 'drop';
+		}
 		
 		return (<Col sm="6" lg="4">
 			<div className="card">
 				<div className="card-body">
 					<h1>{name}</h1>
-					<div>${ticker.price}</div>
+					<div className="price">${ticker.price}</div>
 					<Row>
 						<Col xs="6">
 							volume: <br />
@@ -30,7 +36,7 @@ export default class Card extends Component {
 						</Col>
 						<Col xs="6">
 							change: <br />
-							{ticker.change}
+							<span className={className}>{ticker.change}</span>
 						</Col>
 					</Row>
 				</div>
