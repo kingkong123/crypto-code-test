@@ -17,20 +17,24 @@ export default class Card extends Component {
 				break;
 
 		}
-		console.log(this.props);
+		
 		return (<Col sm="6" lg="4">
-			<h1>{name}</h1>
-			<div>${ticker.price}</div>
-			<Row>
-				<Col xs="6">
-					volume: <br />
-					{ticker.volume}
-				</Col>
-				<Col xs="6">
-					change: <br />
-					{ticker.change}
-				</Col>
-			</Row>
+			<div className="card">
+				<div className="card-body">
+					<h1>{name}</h1>
+					<div>${ticker.price}</div>
+					<Row>
+						<Col xs="6">
+							volume: <br />
+							{ticker.volume}
+						</Col>
+						<Col xs="6">
+							change: <br />
+							{ticker.change}
+						</Col>
+					</Row>
+				</div>
+			</div>
 		</Col>);
 	}
 }

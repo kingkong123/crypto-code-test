@@ -30,6 +30,9 @@ export default class App extends Component {
 		return (
 			<Container>
 				<Row>
+					<Col><h1>Cryptocurrency Realtime Price</h1></Col>
+				</Row>
+				<Row>
 					{this.state.rates.map((rate, i) => <Card rate={rate} key={i} />)}
 				</Row>
 			</Container>
