@@ -13,13 +13,22 @@ router.get('/rates', (req, res) => {
 	let time = Math.round((new Date()).getTime() / 1000);
 
 	if (time - 30 > lastUpdate){
+		console.log('update rates');
+		
 		lastUpdate = time;
-		tools.getCurrencies().then((result) => {
-			console.log('update rates');
+		tools.getCurrencies(0, (results) => {
+			rates = Object.keys(results).map((k) => results[k]);
 
-			rates = result;
-			res.json(result);
+			res.json(rates);
 		});
+
+
+		// .then((result) => {
+		// 	rates = result;
+		// 	res.json(result);
+		// }).catch(err => {
+		// 	console.log(err);
+		// });
 	}else{
 		console.log('old rates');
 
