@@ -5,42 +5,46 @@ export default class Card extends Component {
 	render() {
 		let ticker = this.props.rate.ticker;
 
-		let name = '';
+		if(ticker.base !== ''){
+			let name = '';
 
-		switch(ticker.base){
-			case 'BTC':
-				name = 'Bitcoin';
-				break;
+			switch(ticker.base){
+				case 'BTC':
+					name = 'Bitcoin';
+					break;
 
-			case 'ETH':
-				name = 'Ether';
-				break;
+				case 'ETH':
+					name = 'Ether';
+					break;
 
-		}
+			}
 
-		let className = 'raise';
+			let className = 'raise';
 
-		if(ticker.change < 0){
-			className = 'drop';
-		}
-		
-		return (<Col sm="6" lg="4">
-			<div className="card">
-				<div className="card-body">
-					<h1>{name}</h1>
-					<div className="price">${ticker.price}</div>
-					<Row>
-						<Col xs="6">
-							volume: <br />
-							{ticker.volume}
-						</Col>
-						<Col xs="6">
-							change: <br />
-							<span className={className}>{ticker.change}</span>
-						</Col>
-					</Row>
+			if(ticker.change < 0){
+				className = 'drop';
+			}
+			
+			return (<Col sm="6" lg="4">
+				<div className="card">
+					<div className="card-body">
+						<h1>{name}</h1>
+						<div className="price">${ticker.price}</div>
+						<Row>
+							<Col xs="6">
+								volume: <br />
+								{ticker.volume}
+							</Col>
+							<Col xs="6">
+								change: <br />
+								<span className={className}>{ticker.change}</span>
+							</Col>
+						</Row>
+					</div>
 				</div>
-			</div>
-		</Col>);
+			</Col>);
+		}
+
+		return ;
 	}
 }

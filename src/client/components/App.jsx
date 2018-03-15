@@ -13,20 +13,20 @@ export default class App extends Component {
 		this.autoUpdateChange = this.autoUpdateChange.bind(this);
 	}
 	componentDidMount() {
-		this.interval = setInterval(this.getRates, 30000);
+		// this.interval = setInterval(this.getRates, 60000);
 
 		this.getRates();
 	}
 	initState() {
 		return {
-			autoUpdate: true,
+			autoUpdate: false,
 			rates: []
 		};
 	}
 
 	autoUpdateChange(evt) {
 		if(evt.target.checked){
-			this.interval = setInterval(this.getRates, 30000);
+			this.interval = setInterval(this.getRates, 60000);
 		}else{
 			clearInterval(this.interval);
 		}
